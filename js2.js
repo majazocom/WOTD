@@ -16,7 +16,7 @@ btn.addEventListener("click", function () {
 
     $.ajax({
         type: "GET",
-        url: "http://randomword.setgetgo.com/get.php",
+        url: "https://random-word-api.herokuapp.com/word",
         dataType: "jsonp",
         jsonpCallback: 'RandomWordComplete'
     });
@@ -29,7 +29,7 @@ function wordMeaning(word) {
     
     $.ajax({
         type: "GET",
-        url: 'http://www.stands4.com/services/v2/defs.php?uid=****&tokenid=****************&word=' + encodeURIComponent(word),
+        url: 'https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(word),
         dataType: "xml",
         success: function (xml) {
             var defintions = $(xml).find('definition');
